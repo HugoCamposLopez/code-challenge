@@ -8,10 +8,10 @@ interface HeaderProps {
 }
 export const Header = ({name}: HeaderProps) => {
   return (
-    <>
+    <View>
     <StyledText size='size20' color='black'>{i18n.t("welcome.back")}</StyledText>
     <StyledText size='size16_400' color='black'>{name}</StyledText>
-    </>
+    </View>
   )
 }
 
