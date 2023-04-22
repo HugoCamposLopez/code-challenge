@@ -2,8 +2,9 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/core'
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RootStackParamList } from '../../StackNavigator/StackNavigator'
-import { GenericContainer } from '../../components/GenericContainer/GenericContainer'
-import { Header } from '../../components/Header/Header'
+import { GenericContainer } from '../../components/Atoms/GenericContainer/GenericContainer'
+import { Header } from '../../components/Molecules/Header/Header'
+import { PointsCard } from '../../components/Molecules/PointsCard/PointsCard'
 export const HomeScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>()
@@ -13,6 +14,7 @@ export const HomeScreen = () => {
   return (
     <GenericContainer>
       <Header name='Rubén Rodríguez' />
+      <PointsCard />
     </GenericContainer>
   )
 }

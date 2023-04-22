@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import { StyledText } from '../StyledText/StyledText'
-import i18n from '../../i18n'
+import { StyledText } from '../../Atoms/StyledText/StyledText'
+import i18n from '../../../i18n'
 
 interface HeaderProps {
   name: string

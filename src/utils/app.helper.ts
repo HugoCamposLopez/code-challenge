@@ -1,4 +1,4 @@
-import { ColorVariation } from "../components/StyledText/StyledText"
+import { ColorVariation } from "../components/Atoms/StyledText/StyledText"
 import { colors } from "../theme"
 
 

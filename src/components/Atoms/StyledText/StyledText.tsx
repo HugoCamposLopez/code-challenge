@@ -1,6 +1,6 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleProp, ViewStyle } from 'react-native'
 import React from 'react'
-import { getColor } from '../../utils/app.helper'
+import { getColor } from '../../../utils/app.helper'
 import { styles } from './styles'
 
 type VariantSize = "size12" | "size14" | "size16_400"| "size16_800" | "size20" | "size24_24"| "size24_32" | "size32"
@@ -10,8 +10,10 @@ interface StyledTextProps{
   children?: React.ReactNode
   size: VariantSize
   color: ColorVariation
+  textAlign?: "left" | "center" | "right"
+  style?: StyleProp<ViewStyle>
 }
-export const StyledText = ({children, size, color}:StyledTextProps) => {
+export const StyledText = ({children, size, color, textAlign="left", style: styleProp}:StyledTextProps) => {
   const variantSize = () => {
     switch(size){
       case "size12":
@@ -34,7 +36,7 @@ export const StyledText = ({children, size, color}:StyledTextProps) => {
   }
   return (
     <View>
-      <Text style={[variantSize(), {color: getColor(color)}]}>{children}</Text>
+      <Text style={[variantSize(), styleProp, {color: getColor(color), textAlign: textAlign,}]}>{children}</Text>
     </View>
   )
 }
