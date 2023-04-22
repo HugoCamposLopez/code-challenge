@@ -2,8 +2,13 @@ import { colors, familyFont } from "../../../theme";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  size12:{
+  size12_400:{
     fontFamily: familyFont.fontRegular,
+    fontSize: 12,
+    lineHeight: 16
+  },
+  size12_800:{
+    fontFamily: familyFont.fontBold,
     fontSize: 12,
     lineHeight: 16
   },
