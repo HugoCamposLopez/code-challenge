@@ -13,6 +13,7 @@ export const MovementsComponentList = ({ itemList }: ItemsComponentListProps) =>
     <View style={styles.container}>
       <StyledText size='size14' color='grey'>{i18n.t("your.movements")}</StyledText>
       <ScrollView
+      nestedScrollEnabled
         contentContainerStyle={{ paddingBottom: 40, gap: 8 }}
         style={styles.scrollViewContainer}>
         {itemList.map((item, index) => {

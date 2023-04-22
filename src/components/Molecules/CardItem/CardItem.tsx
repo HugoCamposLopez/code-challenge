@@ -5,7 +5,7 @@ import { styles } from './styles'
 import moment from 'moment'
 import 'moment/locale/es'
 
-moment.locale('es')
+moment.updateLocale('es', null)
 export interface PropertiesI {
   createdAt: string
   product: string
@@ -26,13 +26,13 @@ export const CardItem = ({ item }: CardItemProps) => {
         <Image alt='item image' style={styles.image} source={{ uri: item.image }} />
       </View>
       <View style={styles.descriptionContainer}>
-        <StyledText size='size14' color='black'> {item.product.length > 15 ?item.product.slice(0,19)+"..." :item.product   }</StyledText>
-        <StyledText size='size12' color='black'> {moment(item.createdAt).format('D [de] MMMM, YYYY')}</StyledText>
+        <StyledText size='size14' color='black'> {item.product.length > 15 ?item.product.slice(0,16)+"..." :item.product   }</StyledText>
+        <StyledText size='size12_400' color='black'> {moment(item.createdAt).format('D [de] MMMM, YYYY')}</StyledText>
       </View>
       <View style={styles.pointsContainer}>
         <View style={{ flexDirection: "row" }}>
           <StyledText size='size16_800' color={item.is_redemption ? "red" : 'green'}>{item.is_redemption ? "-  " : "+ "}</StyledText>
-          <StyledText size='size16_800' color='black'>100</StyledText>
+          <StyledText size='size16_800' color='black'>{item.points}</StyledText>
         </View>
         <Image alt='arrow right' source={require('../../../../assets/Images/arrowright.png')} style={styles.arrowIcon} />
       </View>

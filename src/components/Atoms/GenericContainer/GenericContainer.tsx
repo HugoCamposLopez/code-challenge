@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
 import { styles } from './styles'
 interface GenericContainerProps{
@@ -7,9 +7,9 @@ interface GenericContainerProps{
 
 export const GenericContainer = ({children}: GenericContainerProps) => {
   return (
-    <View style={styles.container}>
+    <ScrollView nestedScrollEnabled contentContainerStyle={styles.container}>
       {children}
-    </View>
+    </ScrollView>
   )
 }
 
