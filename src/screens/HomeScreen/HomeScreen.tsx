@@ -5,6 +5,7 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RootStackParamList } from '../../StackNavigator/StackNavigator'
 import { GenericContainer } from '../../components/GenericContainer/GenericContainer'
 import { styles } from './styles'
+import { StyledText } from '../../components/StyledText/StyledText'
 export const HomeScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>()
@@ -13,9 +14,8 @@ export const HomeScreen = () => {
   }
   return (
     <GenericContainer>
-      <Text style={styles.title}>Bienvenido de vuelta</Text>
-      <Text style={styles.subtitle}>Ruben Rodriguez</Text>
-      <Button title="Go to Description" onPress={navigateToDescription} />
+      <StyledText size='size20' color='black'>Bienvenido de vuelta</StyledText>
+      <StyledText size='size16_400' color='black'>Rubén Rodríguez</StyledText>
     </GenericContainer>
   )
 }
