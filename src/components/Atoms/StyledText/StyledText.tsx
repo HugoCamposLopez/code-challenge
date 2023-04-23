@@ -38,7 +38,7 @@ export const StyledText = ({children, size, color, textAlign="left", style: styl
   }
   return (
     <View>
-      <Text style={[variantSize(), styleProp, {color: getColor(color), textAlign: textAlign,}]}>{children}</Text>
+      <Text testID='styledText' style={[variantSize(), styleProp, {color: getColor(color), textAlign: textAlign,}]}>{children}</Text>
     </View>
   )
 }

@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { PropertiesI } from '../CardItem/CardItem'
-import StyledButton from '../../Atoms/StyledButton/StyledButton'
+import {StyledButton} from '../../Atoms/StyledButton/StyledButton'
 import i18n from '../../../i18n'
 import { styles } from './styles'
 

@@ -9,12 +9,11 @@ interface StyledButtonProps {
   onPress?: () => void
 }
 
-const StyledButton = ({children, style, onPress, sizeText= "size16_800"}:StyledButtonProps) => {
+export const StyledButton = ({children, style, onPress, sizeText= "size16_800"}:StyledButtonProps) => {
   return (
-    <TouchableOpacity style={[style, styles.buttonContainer]} onPress={onPress}>
-      <StyledText  size={sizeText} color='white'>{children}</StyledText>
+    <TouchableOpacity role='button' style={[style, styles.buttonContainer]} onPress={onPress}>
+      <StyledText size={sizeText} color='white'>{children}</StyledText>
     </TouchableOpacity>
   )
 }
 
-export default StyledButton

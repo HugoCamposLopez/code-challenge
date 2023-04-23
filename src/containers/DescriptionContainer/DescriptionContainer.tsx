@@ -1,7 +1,7 @@
 import { View, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { StyledText } from '../../components/Atoms/StyledText/StyledText'
-import StyledButton from '../../components/Atoms/StyledButton/StyledButton'
+import { StyledButton } from '../../components/Atoms/StyledButton/StyledButton'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { styles } from './styles'
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native'
