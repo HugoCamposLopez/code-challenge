@@ -2,5 +2,8 @@
   "es.example.hello": "Hola Mundo!",
   "es.welcome.back": "Bienvenido de vuelta!",
   "es.your.points": "TUS PUNTOS",
-  "es.your.movements": "TUS MOVIMIENTOS"
+  "es.your.movements": "TUS MOVIMIENTOS",
+  "es.win": "Ganados",
+  "es.loss": "Canjeados",
+  "es.everything": "Todos"
 }
