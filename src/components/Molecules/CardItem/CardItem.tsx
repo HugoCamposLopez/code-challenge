@@ -32,7 +32,7 @@ export const CardItem = ({ item }: CardItemProps) => {
         <Image
           alt="item image"
           style={styles.image}
-          source={{ uri: item.image }}
+          source={{ uri: item.image === "" ? "https://loremflickr.com/640/480/people" : item.image}}
         />
       </View>
       <View style={styles.descriptionContainer}>

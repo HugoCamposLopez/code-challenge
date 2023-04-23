@@ -1,40 +1,57 @@
-import React from 'react';
-import { useNavigation } from '@react-navigation/core';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../StackNavigator/StackNavigator';
+import React, { useState } from 'react';
 import { GenericContainer } from '../../components/Atoms/GenericContainer/GenericContainer';
 import { Header } from '../../components/Molecules/Header/Header';
 import { PointsCard } from '../../components/Molecules/PointsCard/PointsCard';
 import { MovementsComponentList } from '../../components/Molecules/MovementsComponentList/MovementsComponentList';
-import data from '../../utils/data.json';
-import StyledButton from '../../components/Atoms/StyledButton/StyledButton';
-import { View } from 'react-native';
+import { usefetchMovements } from '../../store/action-creators/usefetchMovements';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { PropertiesI } from '../../components/Molecules/CardItem/CardItem';
+import FilterButton from '../../components/Molecules/FilterButton/FilterButton';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const HomeContainer = (): JSX.Element => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { movements } = useSelector((state: RootState) => state);
+  const { fetchMovements_execute, loading, success } = usefetchMovements();
+  const [isFilter, setIsFilter] = useState(false);
 
+  const [movementsList, setMovementsList] = useState<PropertiesI[]>(movements);
+  const filterPostive = () => {
+    const movementsPositive = movements?.filter((item: PropertiesI) => {
+      if (item.is_redemption === false) {
+        return item;
+      }
+    });
+    setMovementsList(movementsPositive);
+    setIsFilter(true);
+  };
+
+  const filterNegatives = () => {
+    const movementsNegatives = movements?.filter((item: PropertiesI) => {
+      if (item.is_redemption === true) {
+        return item;
+      }
+    });
+    setMovementsList(movementsNegatives);
+    setIsFilter(true);
+  };
+
+  const withoutFilter = () => {
+    setMovementsList(movements);
+    setIsFilter(false);
+  };
   return (
-    <GenericContainer>
-      <Header name="Rubén Rodríguez" />
-      <PointsCard />
-      <MovementsComponentList itemList={data} />
-      <StyledButton>Todos</StyledButton>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-evenly',
-          paddingHorizontal: 20,
-          width: '100%',
-          gap: 13,
-        }}>
-        <StyledButton style={{ width: '50%' }} sizeText="size12_800">
-          Ganados
-        </StyledButton>
-        <StyledButton style={{ width: '50%' }} sizeText="size12_800">
-          Canjeados
-        </StyledButton>
-      </View>
-    </GenericContainer>
+    <SafeAreaView>
+      <GenericContainer>
+        <Header name="Rubén Rodríguez" />
+        <PointsCard />
+        <MovementsComponentList itemList={movementsList!} />
+        <FilterButton
+          filterAll={withoutFilter}
+          filterNegative={filterNegatives}
+          filterPositive={filterPostive}
+          isFilter={isFilter} />
+      </GenericContainer>
+    </SafeAreaView>
   );
 };
