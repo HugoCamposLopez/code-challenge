@@ -1,14 +1,14 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   touchableContainer: {
     flexDirection: 'row',
-    height: 55
+    height: 55,
   },
   image: {
     width: 55,
     height: 55,
-    borderRadius: 10
+    borderRadius: 10,
   },
   descriptionContainer: {
     flex: 2,
@@ -23,8 +23,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 8,
   },
+  pointsAndSignContainer: {
+    flexDirection: 'row',
+  },
   arrowIcon: {
     width: 15,
     height: 15,
   },
-})
+});

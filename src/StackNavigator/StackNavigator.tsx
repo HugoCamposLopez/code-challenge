@@ -3,10 +3,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeScreen} from '../screens/HomeScreen/HomeScreen';
 import {DescriptionScreen} from '../screens/DescriptionScreen/DescriptionScreen';
+import { PropertiesI } from "../components/Molecules/CardItem/CardItem";
 
 export type RootStackParamList = {
   Home: undefined;
-  DescriptionScreen: undefined;
+  DescriptionScreen: {item: PropertiesI};
 };
 export const StackNavigator = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
