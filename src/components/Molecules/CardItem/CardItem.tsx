@@ -7,7 +7,6 @@ import 'moment/locale/es'
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../StackNavigator/StackNavigator';
-
 moment.updateLocale('es', null)
 export interface PropertiesI {
   createdAt: string
@@ -27,12 +26,17 @@ export const CardItem = ({ item }: CardItemProps) => {
   return (
     <TouchableOpacity
       style={styles.touchableContainer}
-      onPress={() => navigation.navigate('DescriptionScreen',{item})}>
+      onPress={() => navigation.navigate('DescriptionScreen', { item })}>
       <View>
         <Image
           alt="item image"
           style={styles.image}
-          source={{ uri: item.image === "" ? "https://loremflickr.com/640/480/people" : item.image}}
+          source={{
+            uri:
+              item.image === ''
+                ? 'https://loremflickr.com/640/480/people'
+                : item.image,
+          }}
         />
       </View>
       <View style={styles.descriptionContainer}>
