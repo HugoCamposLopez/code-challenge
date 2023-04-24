@@ -1,17 +1,19 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { StyledText } from '../../Atoms/StyledText/StyledText'
-import i18n from '../../../i18n'
+import { View } from 'react-native';
+import React from 'react';
+import { StyledText } from '../../Atoms/StyledText/StyledText';
 
 interface HeaderProps {
   name: string
 }
-export const Header = ({name}: HeaderProps) => {
+export const Header = ({ name }: HeaderProps) => {
   return (
     <View>
-    <StyledText size='size20' color='black'>{i18n.t("welcome.back")}</StyledText>
-    <StyledText size='size16_400' color='black'>{name}</StyledText>
+      <StyledText size="size20" color="black">
+        Bienvenido de vuelta!
+      </StyledText>
+      <StyledText size="size16_400" color="black">
+        {name}
+      </StyledText>
     </View>
-  )
-}
-
+  );
+};

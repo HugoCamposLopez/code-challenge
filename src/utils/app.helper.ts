@@ -24,7 +24,7 @@ export function capitalizeFirstLetter(text: string) {
   return text.charAt(0).toUpperCase() + text.slice(1)
 }
 
-export function formatNumber(number) {
+export function formatNumber(number: number) {
   let decimalSeparator = '.';
   let thousandSeparator = ',';
   let parts = number.toFixed(2).toString().split('.');

@@ -7,8 +7,7 @@ import { styles } from './styles'
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native'
 import { RootStackParamList } from '../../StackNavigator/StackNavigator'
 import moment from 'moment'
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import i18n from '../../i18n'
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
 moment.updateLocale('es', null)
 
 export const DescriptionContainer = () => {
@@ -33,16 +32,18 @@ export const DescriptionContainer = () => {
 
           <View style={styles.detailContainer}>
             <StyledText color="grey" size="size14">
-              {i18n.t("product.detail")}
+              Detalles del producto:
             </StyledText>
             <StyledText color="black" size="size16_800">
-              {i18n.t("buy.the")} {moment(item.createdAt).format('D [de] MMMM, YYYY')}
+              {`Comprado el ${moment(item.createdAt).format(
+                'D [de] MMMM, YYYY',
+              )}`}
             </StyledText>
           </View>
 
           <View style={styles.pointsContainer}>
             <StyledText color="grey" size="size14">
-              {i18n.t("buy.accumulate")}
+              Con esta compra acumulaste:
             </StyledText>
             <StyledText color="black" size="size24_24">
               {item.points} pts
@@ -50,7 +51,9 @@ export const DescriptionContainer = () => {
           </View>
 
           <View style={styles.buttonContainer}>
-            <StyledButton onPress={() => navigation.goBack()}>{i18n.t("accept")}</StyledButton>
+            <StyledButton onPress={() => navigation.goBack()}>
+              Aceptar
+            </StyledButton>
           </View>
         </View>
       </ScrollView>

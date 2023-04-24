@@ -1,9 +1,8 @@
-import { View, ScrollView } from 'react-native'
-import React from 'react'
-import { StyledText } from '../../Atoms/StyledText/StyledText'
-import i18n from '../../../i18n'
-import { CardItem, PropertiesI } from '../CardItem/CardItem'
-import { styles } from './styles'
+import { View, ScrollView } from 'react-native';
+import React from 'react';
+import { StyledText } from '../../Atoms/StyledText/StyledText';
+import { CardItem, PropertiesI } from '../CardItem/CardItem';
+import { styles } from './styles';
 interface ItemsComponentListProps {
   itemList: PropertiesI[]
 }
@@ -14,7 +13,7 @@ export const MovementsComponentList = ({
   return (
     <View style={styles.container}>
       <StyledText size="size14" color="grey">
-        {i18n.t('your.movements')}
+        TUS MOVIMIENTOS
       </StyledText>
       <ScrollView
         nestedScrollEnabled
@@ -26,5 +25,5 @@ export const MovementsComponentList = ({
           })}
       </ScrollView>
     </View>
-  )
-}
+  );
+};

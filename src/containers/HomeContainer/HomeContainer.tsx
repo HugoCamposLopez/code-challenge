@@ -3,7 +3,6 @@ import { GenericContainer } from '../../components/Atoms/GenericContainer/Generi
 import { Header } from '../../components/Molecules/Header/Header';
 import { PointsCard } from '../../components/Molecules/PointsCard/PointsCard';
 import { MovementsComponentList } from '../../components/Molecules/MovementsComponentList/MovementsComponentList';
-import { usefetchMovements } from '../../store/action-creators/usefetchMovements';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { PropertiesI } from '../../components/Molecules/CardItem/CardItem';
@@ -12,7 +11,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const HomeContainer = (): JSX.Element => {
   const { movements } = useSelector((state: RootState) => state);
-  const { fetchMovements_execute, loading, success } = usefetchMovements();
   const [isFilter, setIsFilter] = useState(false);
 
   const [movementsList, setMovementsList] = useState<PropertiesI[]>(movements);
@@ -44,13 +42,14 @@ export const HomeContainer = (): JSX.Element => {
     <SafeAreaView>
       <GenericContainer>
         <Header name="Rubén Rodríguez" />
-        <PointsCard />
+        <PointsCard movements={movements} />
         <MovementsComponentList itemList={movementsList!} />
         <FilterButton
           filterAll={withoutFilter}
           filterNegative={filterNegatives}
           filterPositive={filterPostive}
-          isFilter={isFilter} />
+          isFilter={isFilter}
+        />
       </GenericContainer>
     </SafeAreaView>
   );
