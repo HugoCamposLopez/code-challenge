@@ -1,10 +1,12 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React from 'react'
+import { StackNavigator } from './src/StackNavigator/StackNavigator'
+import { Provider } from 'react-redux'
+import { store } from './src/store/store'
 
-export const App = (): JSX.Element => {
+export const App = () => {
   return (
-    <View>
-      <Text>Hola mundo</Text>
-    </View>
-  );
-};
+    <Provider store={store}>
+      <StackNavigator />
+    </Provider>
+  )
+}
