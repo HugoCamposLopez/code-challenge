@@ -1,4 +1,5 @@
 import { ColorVariation } from '../components/Atoms/StyledText/StyledText';
+import { PropertiesI } from '../components/Molecules/CardItem/CardItem';
 import { colors } from '../theme';
 
 export const getColor = (color: ColorVariation) => {
@@ -30,4 +31,19 @@ export function formatNumber(number: number) {
   let parts = number.toFixed(2).toString().split('.');
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousandSeparator)
   return parts.join(decimalSeparator)
+}
+
+
+export const getTotalPoints = (allMovementes: PropertiesI[]) => {
+  let sumTotal = 0
+  let sumNegative = 0
+  allMovementes.map((item: PropertiesI) => {
+    if (item.is_redemption === true) {
+      sumNegative = sumNegative + item.points
+    }else{
+      sumTotal = sumTotal + item.points
+    }
+  })
+
+  return formatNumber(sumTotal - sumNegative)
 }

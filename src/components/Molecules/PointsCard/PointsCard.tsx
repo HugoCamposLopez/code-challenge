@@ -3,7 +3,7 @@ import React from 'react'
 import { StyledText } from '../../Atoms/StyledText/StyledText'
 import { styles } from './styles'
 import moment from 'moment'
-import { capitalizeFirstLetter, formatNumber } from '../../../utils/app.helper'
+import { capitalizeFirstLetter, formatNumber, getTotalPoints } from '../../../utils/app.helper'
 
 import { PropertiesI } from '../CardItem/CardItem'
 
@@ -12,18 +12,7 @@ interface PointsCardProps {
 }
 
 export const PointsCard = ({ movements }: PointsCardProps) => {
-  const getTotalPoints = (allMovementes: PropertiesI[]) => {
-    let sumTotal = 0
-    let sumNegative = 0
-    allMovementes.map((item: PropertiesI) => {
-      if (item.is_redemption === true) {
-        sumNegative = sumNegative + item.points
-      }
-      sumTotal = sumTotal + item.points
-    })
-
-    return formatNumber(sumTotal - sumNegative)
-  }
+  
   return (
     <View style={styles.container}>
       <StyledText size="size14" color="grey">

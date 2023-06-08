@@ -25,7 +25,7 @@ describe('<PointsCard/>', () => {
     render(<PointsCard movements={data} />);
     const title = screen.getByText('TUS PUNTOS');
     expect(title).toBeDefined();
-    const points = screen.getByText('16,434.00 pts');
+    const points = screen.getByText('-76,550.00 pts');
     expect(points).toBeDefined();
   });
 });
